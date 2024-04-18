@@ -5,7 +5,7 @@ app = FastAPI(title="Inventory Database Backend")
 
 @app.get("/")
 async def root():
-    return {"message": "Hello World2"}
+    return {"message": "Hello World! Have a good day!"}
 
 
 @app.get("/hello/{name}")
