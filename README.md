@@ -13,12 +13,38 @@ The other repository can be found here :
 -  Arudino: https://github.com/slepp22/inventory_database_arduino
 
 ## Features
-
-Will be displayed with Release of the Beta Version
+- Login API
 
 ## Installation process for further development
 
-Will be displayed with Release of the Beta Version
+1. Clone the Repository
+```console
+git clone https://github.com/slepp22/inventory_database_backend
+```
+2. Create a Virtual Environment: Create a virtual environment using: 
+```console
+python -m venv command 
+```
+3. Activate the Virtual Environment by using: 
+```console
+source venv/bin/activate 
+```
+4. Install Dependencies listed in the requirements.txt file using:
+```console
+pip install -r requirements.txt
+```
+
+## Database
+### Alembic
+Used for managing database schema migrations, such as creating, modifying, and reverting database schema changes
+Create Migration File (Versions)
+```console
+alembic revision --autogenerate
+```
+Migrate changes to Database
+```console
+alembic upgrade head
+```
 
 ## Deployment Process
 

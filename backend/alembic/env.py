@@ -1,3 +1,9 @@
+import os
+import sys
+
+# Add the parent directory of the backend folder to the Python path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+
 from logging.config import fileConfig
 
 from sqlalchemy import engine_from_config
@@ -14,7 +20,7 @@ config = context.config
 fileConfig(config.config_file_name)
 
 from backend import config as config_env
-from backend.db import Base
+from backend.db.models import Base
 
 # add your model's MetaData object here
 # for 'autogenerate' support
