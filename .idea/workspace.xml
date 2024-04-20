@@ -4,28 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37901571-dd7f-4596-827e-690a0707c9ff" name="Changes" comment="Added Readme File">
-      <change afterPath="$PROJECT_DIR$/backend/api/login.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/db/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/db/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/services/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/services/login_service.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/user/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0827ea22-ef8c-458f-86ae-0bceb78167c4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0827ea22-ef8c-458f-86ae-0bceb78167c4/storage_v2/_src_/database/postgres.edMnLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0827ea22-ef8c-458f-86ae-0bceb78167c4/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0827ea22-ef8c-458f-86ae-0bceb78167c4/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0827ea22-ef8c-458f-86ae-0bceb78167c4/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" />
+    <list default="true" id="37901571-dd7f-4596-827e-690a0707c9ff" name="Changes" comment="/login API implemented">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/alembic/versions/01287cae4d14_.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/alembic/versions/133d6285a0e0_.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/alembic/versions/15524709d8ba_.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/alembic/versions/6d8182c3b30a_.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/alembic/versions/79984cce476d_.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/alembic/versions/8413a7fa543a_.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/alembic/versions/894f301907cf_.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/alembic/versions/9ecbaa0c53c2_.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/alembic/versions/ab64239b1815_.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/alembic/versions/d0cdb03dc4fe_.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/alembic/versions/d3328b2ed084_.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/alembic/versions/f0c538025c5d_add_new_column_to_user_table.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/alembic/versions/f41190c2ef50_.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/alembic/versions/f4c87c8c283a_.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/alembic/env.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/alembic/env.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/backend/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/backend/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/backend/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db/session.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/backend/user/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/backend/user/hasing.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/user/hasing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/backend/user/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/user/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/db/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +44,7 @@
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$/.." value="main" />
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="login-api" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -82,14 +81,14 @@
     "FastAPI.backend.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "login-api",
+    "git-widget-placeholder": "venv",
     "last_opened_file_path": "/Users/sven/Desktop/PROGRAMMING/inventory_database_backend",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "settings.editor.selected.configurable": "terminal",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -100,6 +99,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/backend/" />
       <recent name="$PROJECT_DIR$/backend/backend/db" />
       <recent name="$PROJECT_DIR$/backend" />
@@ -149,7 +149,7 @@
       <workItem from="1713603351826" duration="163000" />
       <workItem from="1713603838955" duration="5424000" />
       <workItem from="1713609418127" duration="361000" />
-      <workItem from="1713609785698" duration="1045000" />
+      <workItem from="1713609785698" duration="6735000" />
     </task>
     <task id="LOCAL-00001" summary="Added Readme File">
       <option name="closed" value="true" />
@@ -159,13 +159,16 @@
       <option name="project" value="LOCAL" />
       <updated>1713599172343</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="/login API implemented">
+      <option name="closed" value="true" />
+      <created>1713610878052</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1713610878052</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
-  </component>
-  <component name="TerminalProjectNonSharedOptionsProvider">
-    <envs>
-      <env key="PATH" value="/opt/homebrew/Cellar/" />
-    </envs>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
@@ -187,10 +190,22 @@
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
     <MESSAGE value="Added Readme File" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Readme File" />
+    <MESSAGE value="/login API implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="/login API implemented" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/backend/alembic/versions/79984cce476d_.py</url>
+          <line>7</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/inventory_database_backend$backend.coverage" NAME="backend Coverage Results" MODIFIED="1713608564907" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/inventory_database_backend$backend.coverage" NAME="backend Coverage Results" MODIFIED="1713613936341" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/backend$backend.coverage" NAME="backend Coverage Results" MODIFIED="1713251695615" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>
