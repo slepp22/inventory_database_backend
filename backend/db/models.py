@@ -8,3 +8,9 @@ class User(Base):
     username = Column(String, unique=True)
     password = Column(String)
     role = Column(String)
+
+    def __init__(self, id=None, username=None, password=None, role=None):
+        self.id = id
+        self.username = username
+        self.password = password
+        self.role = role
