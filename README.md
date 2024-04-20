@@ -21,6 +21,7 @@ The other repository can be found here :
 ```console
 git clone https://github.com/slepp22/inventory_database_backend
 ```
+Perform the folliwing steps in Pycharms Terminal:
 2. Create a Virtual Environment: Create a virtual environment using: 
 ```console
 python -m venv command 
