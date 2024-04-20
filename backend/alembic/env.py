@@ -15,7 +15,6 @@ fileConfig(config.config_file_name)
 
 from backend import config as config_env
 from backend.db import Base
-from backend.user.models import User
 
 # add your model's MetaData object here
 # for 'autogenerate' support
