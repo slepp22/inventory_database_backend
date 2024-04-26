@@ -70,6 +70,8 @@ You should see this message if the setup was successfull:
 ## Deployment
 ### Database
 The Postgres Database is setup on Google Cloud SQL (Postgres 15)
+Please be aware that you cant just connect with to the database Public IP with the credentials. Your own network must 
+be added in the Google Cloud Web Interface, so it only allows connection from known networks.
 
 ### FastAPI Container
 The backend is hosted on Google Cloud Run. To deploy a new version following pre-requisites are needed:
