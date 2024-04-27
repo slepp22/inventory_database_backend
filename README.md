@@ -32,17 +32,7 @@ DATABASE_NAME = os.getenv('DATABASE_NAME', 'postgres')
 ```
 #### Setup in PyCharm
 First thing we need to do, is to Clone the Repository. 
-After that we need to create the required environment variables in our Run configuration:
-
-Edit Configuration:
-<br><img src="./images/env_1.png" style="width: 300px">
-
-Open List:
-<br><img src="./images/env_2.png" style="width: 500px">
-
-Add Environment Variables:
-<br><img src="./images/env_3.png" style="width: 500px">
-
+If you used other credentials for the database, you can change them in the .env file.
 After setting up the environment variables, the next step will be to generate and activate the virtual environment.
 There run following command in the terminal:
 1) This will generate a virtual environment with the name venv
@@ -66,6 +56,17 @@ pip install -r requirements.txt
 You should see this message if the setup was successfull:
 
 <img src="./images/app_startup_successfull.png" style="width: 500px">
+
+##### Database Migrations
+To create the database schema, you can run the following command:
+```bash
+alembic revision --autogenerate -m "Initial migration"
+```
+This will create a new migration file in the alembic/versions folder. To apply the migration, run the following command:
+```bash
+alembic upgrade head
+```
+This will create the necessary tables in the database.
 
 ## Deployment
 ### Database

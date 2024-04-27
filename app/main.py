@@ -1,13 +1,23 @@
 from fastapi import FastAPI
 
+import db.config
+from db.config import SessionLocal
+from app.api import routers
+
 app = FastAPI()
 
 
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+
+#debugging
+print(db.config.get_database_url())
 
 
-@app.get("/hello/{name}")
-async def say_hello(name: str):
-    return {"message": f"Hello {name}"}
+app.include_router(routers.router)
+
+
