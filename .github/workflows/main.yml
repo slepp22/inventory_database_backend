@@ -22,12 +22,10 @@ jobs:
           docker tag sleppp/inventory-backend gcr.io/inventory-database-420916/inventory-backend
           docker push gcr.io/inventory-database-420916/inventory-backend:latest
 
-      - name: Set up Google Cloud SDK
-        uses: GoogleCloudPlatform/github-actions/setup-gcloud@v0.4.0
-        with:
-          project_id: ${{ secrets.GCP_PROJECT_ID }}
-          service_account_key: ${{ secrets.GCP_SA_KEY }}
-          export_default_credentials: true
+      - name: Authenticate with Google Cloud
+        run: |
+          gcloud auth activate-service-account --key-file=service-account-key.json
+          gcloud config set project ${{ secrets.inventory-database-420916 }}
 
       - name: Deploy to Cloud Run
         run: |
