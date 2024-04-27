@@ -14,10 +14,9 @@ def get_db():
     finally:
         db.close()
 
-#debugging
-print(db.config.get_database_url())
-
-
 app.include_router(routers.router)
+
+
+
 
 
