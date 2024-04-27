@@ -1,6 +1,7 @@
 import random
 
 from fastapi import APIRouter
+from app.api.endpoints import user
 
 router = APIRouter()
 
@@ -12,3 +13,5 @@ async def read_root():
 async def generate_pin():
     pin = random.randint(1000, 9999)
     return {pin}
+
+router.include_router(user.router, tags=["users"])

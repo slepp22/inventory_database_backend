@@ -1,11 +1,20 @@
-from sqlalchemy import Column, Integer, String
-from sqlalchemy.ext.declarative import declarative_base
+from fastapi import APIRouter, Depends, HTTPException
+from sqlalchemy.orm import Session
+from db.config import SessionLocal
+from app.models import user as user_model
 
-Base = declarative_base()
+router = APIRouter()
 
-class User(Base):
-    __tablename__ = 'users'
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
 
-    id = Column(Integer, primary_key=True)
-    name = Column(String)
-    email = Column(String, unique=True)
+@router.get("/users/{user_id}")
+def get_user_by_id(user_id: int, db: Session = Depends(get_db)):
+    user = db.query(user_model.User).filter(user_model.User.id == user_id).first()
+    if user is None:
+        raise HTTPException(status_code=404, detail="User not found")
+    return user

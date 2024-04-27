@@ -95,7 +95,15 @@ docker tag sleppp/inventory-backend gcr.io/inventory-database-420916/inventory-b
 ```bash
 docker push gcr.io/inventory-database-420916/inventory-backend:latest
 ```
+## SQL Scripts for Test Data
+```sql
+INSERT INTO users (firstname, lastname, email, password, role)
+VALUES ('Firstname1', 'Lastname1', 'user1@example.com', 'password1', 'student');
 
+INSERT INTO users (firstname, lastname, email, password, role)
+VALUES ('Firstname2', 'Lastname2', 'user2@example.com', 'password2', 'admin');
+
+```
 If you encounter any errors during the deployment process, make sure you are authenticated with Google Cloud CLI 
 (gcloud auth login) and have the necessary permissions to push images to Google Container Registry. For troubleshooting 
 tips or common errors, refer to the Google Cloud Run documentation.
