@@ -1,0 +1,36 @@
+name: Deploy to Google Cloud Run
+
+on:
+  push:
+    branches:
+      - main  # Adjust the branch name as needed
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Build and push Docker image
+        run: |
+          docker buildx build -t sleppp/inventory-backend --platform linux/amd64 .
+          docker tag sleppp/inventory-backend gcr.io/inventory-database-420916/inventory-backend
+          docker push gcr.io/inventory-database-420916/inventory-backend:latest
+
+      - name: Authenticate with Google Cloud
+        run: |
+          gcloud auth activate-service-account --key-file=service-account-key.json
+          gcloud config set project ${{ secrets.inventory-database-420916 }}
+
+      - name: Deploy to Cloud Run
+        run: |
+          gcloud run deploy inventory-backend \
+            --image gcr.io/inventory-database-420916/inventory-backend \
+            --platform managed \
+            --region us-central1 \
+            --allow-unauthenticated
