@@ -12,6 +12,6 @@ async def read_root():
 @router.get("/pin")
 async def generate_pin():
     pin = random.randint(1000, 9999)
-    return {pin}
+    return {"pin": pin}
 
 router.include_router(user.router, tags=["users"])
