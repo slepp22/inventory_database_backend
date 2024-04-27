@@ -17,6 +17,5 @@ def get_database_url():
     return DB_URL
 
 engine = create_engine(DB_URL)
-
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
