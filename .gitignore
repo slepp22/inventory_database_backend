@@ -23,9 +23,6 @@ bower_components/
 *.log
 *.sqlite
 
-# Environment variables
-.env
-
 # Compiled Python files
 *.pyc
 
