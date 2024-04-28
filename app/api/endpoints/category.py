@@ -14,13 +14,13 @@ def get_db():
         db.close()
 
 
-@router.get("/categories", response_model=list[category_model.Category])
+@router.get("/categories")
 def get_all_categories(db: Session = Depends(get_db)):
     categories = db.query(category_model.Category).all()
     return categories
 
 
-@router.get("/categories/{category_id}", response_model=category_model.Category)
+@router.get("/categories/{category_id}")
 def get_category_by_id(category_id: int, db: Session = Depends(get_db)):
     category = db.query(category_model.Category).filter(category_model.Category.id == category_id).first()
     if category is None:
@@ -28,7 +28,7 @@ def get_category_by_id(category_id: int, db: Session = Depends(get_db)):
     return category
 
 
-@router.post("/categories", response_model=category_model.Category)
+@router.post("/categories")
 def create_category(name: str, db: Session = Depends(get_db)):
     category = category_model.Category(name=name)
     db.add(category)
@@ -37,7 +37,7 @@ def create_category(name: str, db: Session = Depends(get_db)):
     return category
 
 
-@router.put("/categories/{category_id}", response_model=category_model.Category)
+@router.put("/categories/{category_id}")
 def update_category(category_id: int, name: str, db: Session = Depends(get_db)):
     category = db.query(category_model.Category).filter(category_model.Category.id == category_id).first()
     if category is None:
