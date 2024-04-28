@@ -1,6 +1,5 @@
 from fastapi import FastAPI
 
-import db.config
 from db.config import SessionLocal
 from app.api import routers
 

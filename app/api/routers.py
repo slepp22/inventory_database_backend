@@ -1,7 +1,7 @@
 import random
 
 from fastapi import APIRouter
-from app.api.endpoints import user
+from app.api.endpoints import user, category
 
 router = APIRouter()
 
@@ -15,3 +15,4 @@ async def generate_pin():
     return {"pin": pin}
 
 router.include_router(user.router, tags=["users"])
+router.include_router(category.router, tags=["categories"])
