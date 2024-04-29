@@ -33,7 +33,7 @@ class Device(Base):
     brand = Column(String, nullable=False)
     model = Column(String, nullable=False)
     serial_no = Column(String, unique=True, nullable=False)
-    qr_code = Column(String, unique=True, nullable=False)
+    qr_code = Column(String, unique=True)
     image = Column(String)
     category_id = Column(Integer, ForeignKey('categories.id'), nullable=False)
     category = relationship("Category", back_populates="devices")
