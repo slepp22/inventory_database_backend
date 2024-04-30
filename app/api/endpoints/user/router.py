@@ -25,6 +25,6 @@ def get_all_users(db: Session = Depends(get_db)):
     return users
 
 
-@router.post('/loginIsValid', response_model=bool, tags=['user'])
+@router.post('/loginIsValid', tags=['user'])
 def login_is_valid(email: str, password: str, db: Session = Depends(get_db)):
     return user_crud.login_is_valid(email, password, db)
