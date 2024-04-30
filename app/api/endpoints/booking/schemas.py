@@ -11,9 +11,11 @@ class BookingBaseSchema(BaseModel):
     device_id: int
     user_id: int
     rent_charge: str
+    pin: int
 
 
 class BookingCreateSchema(BookingBaseSchema):
+    pin: Optional[int]
     pass
 
 
@@ -22,3 +24,14 @@ class BookingSchema(BookingBaseSchema):
 
     class Config:
         orm_mode = True
+
+
+class BookingUpdateSchema(BaseModel):
+    time_start: Optional[datetime]
+    time_end: Optional[datetime]
+    active: Optional[bool]
+    price: Optional[float]
+    device_id: Optional[int]
+    user_id: Optional[int]
+    rent_charge: Optional[str]
+    pin: Optional[int]

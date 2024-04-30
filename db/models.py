@@ -52,6 +52,7 @@ class Booking(Base):
     user_id = Column(Integer, ForeignKey('users.id'), nullable=False)
     user = relationship("User", back_populates="bookings")
     rent_charge = Column(String, nullable=False)
+    pin = Column(Integer)
 
 
 class Locker(Base):

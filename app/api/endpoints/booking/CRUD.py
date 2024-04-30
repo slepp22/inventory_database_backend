@@ -1,4 +1,5 @@
 import logging
+import random
 
 from sqlalchemy.orm import Session
 
@@ -8,6 +9,7 @@ from db.models import Booking
 
 def create_booking(schema: BookingCreateSchema, db: Session):
     entity = Booking(**schema.dict())
+    entity.pin = random.randint(1000, 9999)
     logging.info('Booking created with id {}'.format(entity.id))
     db.add(entity)
     db.commit()
@@ -34,3 +36,15 @@ def delete_booking(booking_id: int, db: Session):
         return None
     else:
         return None
+
+
+def get_newest_booking(db):
+    return db.query(Booking).order_by(Booking.id.desc()).first()
+
+
+def update_booking(booking, updated_booking_data, db):
+    for field, value in updated_booking_data.items():
+        setattr(booking, field, value)
+    db.commit()
+    db.refresh(booking)
+    return booking
