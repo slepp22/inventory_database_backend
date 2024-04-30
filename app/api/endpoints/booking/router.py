@@ -2,6 +2,7 @@ from typing import List
 
 from fastapi import APIRouter, Depends, Response, HTTPException
 from sqlalchemy.orm import Session
+from starlette import status
 
 import app.api.endpoints.booking.CRUD as booking_crud
 from app.api.endpoints.booking.schemas import BookingSchema, BookingCreateSchema
@@ -43,3 +44,9 @@ def get_all_bookings_by_user_id(user_id: int, db: Session = Depends(get_db)):
 def create_booking(booking: BookingCreateSchema, db: Session = Depends(get_db)):
     new_booking = booking_crud.create_booking(booking, db)
     return new_booking
+
+
+@router.delete('/bookings/{booking_id}', response_model=None, tags=['booking'])
+def delete_booking(booking_id: int, db: Session = Depends(get_db)):
+    booking_crud.delete_booking(booking_id, db)
+    return Response(status_code=status.HTTP_204_NO_CONTENT)
