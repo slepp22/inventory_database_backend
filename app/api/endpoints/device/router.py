@@ -62,3 +62,12 @@ def delete_device(
         db: Session = Depends(get_db)):
     device_crud.delete_device_by_id(device_id, db)
     return Response(status_code=status.HTTP_204_NO_CONTENT)
+
+
+@router.get('/devices/by_category/{category_id}', response_model=List[DeviceSchema], tags=['device'])
+def get_devices_by_category(
+        category_id: int,
+        db: Session = Depends(get_db),
+):
+    devices = device_crud.get_devices_by_category(category_id, db)
+    return devices

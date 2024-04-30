@@ -41,3 +41,7 @@ def delete_device_by_id(device_id: int, db: Session):
     if device:
         db.delete(device)
         db.commit()
+
+
+def get_devices_by_category(category_id: int, db: Session):
+    return db.query(Device).filter(Device.category_id == category_id).all()
