@@ -7,6 +7,7 @@ class ReportBaseSchema(BaseModel):
     date: datetime
     description: str
     image: Optional[str]
+    booking_id: int
 
 
 class ReportCreateSchema(ReportBaseSchema):

@@ -72,9 +72,11 @@ class Report(Base):
     date = Column(String, nullable=False)
     description = Column(String)
     image = Column(String)
+    booking_id = Column(Integer, ForeignKey('bookings.id'), nullable=False)
 
 
 # Define relationships
 User.bookings = relationship("Booking", back_populates="user")
 Device.bookings = relationship("Booking", back_populates="device")
 Category.devices = relationship("Device", back_populates="category")
+booking = relationship("Booking", back_populates="reports")
