@@ -15,12 +15,12 @@ class BookingBaseSchema(BaseModel):
 
 
 class BookingCreateSchema(BookingBaseSchema):
-    pin: Optional[int]
     pass
 
 
 class BookingSchema(BookingBaseSchema):
     id: int
+    pin: int
 
     class Config:
         orm_mode = True

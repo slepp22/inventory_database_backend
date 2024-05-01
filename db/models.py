@@ -43,8 +43,8 @@ class Booking(Base):
     __tablename__ = 'bookings'
 
     id = Column(Integer, primary_key=True)
-    time_start = Column(String, nullable=False)
-    time_end = Column(String, nullable=False)
+    time_start = Column(DateTime, nullable=False)
+    time_end = Column(DateTime, nullable=False)
     active = Column(Boolean, default=True)
     price = Column(Float, nullable=False)
     device_id = Column(Integer, ForeignKey('devices.id'), nullable=False)
