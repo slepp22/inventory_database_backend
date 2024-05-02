@@ -1,5 +1,6 @@
 import logging
 import random
+from datetime import datetime
 
 from sqlalchemy.orm import Session
 
@@ -44,8 +45,18 @@ def get_newest_booking(db):
 
 
 def update_booking(booking, updated_booking_data, db):
+    if 'active' in updated_booking_data and not updated_booking_data['active'] and booking.active:
+        booking.time_end = datetime.now()
+        duration_hours = (booking.time_end - booking.time_start).total_seconds() / 3600
+        booking.booking_price = round(duration_hours * booking.device.rent_price_per_hour, 2)
+
     for field, value in updated_booking_data.items():
-        setattr(booking, field, value)
+        if field not in ['active', 'time_end', 'booking_price']:
+            setattr(booking, field, value)
+
+    if 'active' in updated_booking_data:
+        setattr(booking, 'active', updated_booking_data['active'])
+
     db.commit()
     db.refresh(booking)
     return booking

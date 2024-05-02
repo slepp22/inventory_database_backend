@@ -7,6 +7,7 @@ class DeviceBaseSchema(BaseModel):
     owner: int
     date_of_purchase: datetime = Field(..., format="%Y-%m-%d %H-%M-%S")
     purchase_price: float
+    rent_price_per_hour: float
     active: bool
     description: str
     brand: str

@@ -28,6 +28,7 @@ class Device(Base):
     owner = Column(Integer, ForeignKey('users.id'), nullable=False)
     date_of_purchase = Column(DateTime(timezone=False), nullable=False)
     purchase_price = Column(Float)
+    rent_price_per_hour = Column(Float)
     active = Column(Boolean, default=True)
     description = Column(String)
     brand = Column(String, nullable=False)
