@@ -44,6 +44,7 @@ def update_device(
     else:
         raise HTTPException(status_code=404)
 
+
 @router.get('/devices/unused', response_model=List[DeviceSchema], tags=['device'])
 def get_devices_not_in_use(
         db: Session = Depends(get_db),
@@ -61,8 +62,6 @@ def get_device(
     if not device:
         raise HTTPException(status_code=404)
     return device
-
-
 
 
 @router.delete('/devices/{device_id}', response_model=None, tags=['device'])

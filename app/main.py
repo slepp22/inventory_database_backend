@@ -13,9 +13,5 @@ def get_db():
     finally:
         db.close()
 
+
 app.include_router(routers.router)
-
-
-
-
-

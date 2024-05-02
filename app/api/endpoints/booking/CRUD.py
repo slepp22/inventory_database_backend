@@ -28,6 +28,7 @@ def get_all_bookings(db: Session):
 def get_all_bookings_by_user_id(user_id: int, db: Session):
     return db.query(Booking).filter(Booking.user_id == user_id).all()
 
+
 def delete_booking(booking_id: int, db: Session):
     booking = get_booking_by_id(booking_id, db)
     if booking:

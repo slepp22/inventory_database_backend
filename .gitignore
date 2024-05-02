@@ -27,8 +27,6 @@ bower_components/
 *.pyc
 
 # Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
 *$py.class
 
 # C extensions
@@ -52,11 +50,9 @@ var/
 *.egg
 
 # Pipenv
-.Python
 pip-log.txt
 pip-delete-this-directory.txt
 
 # FastAPI specific
-__pycache__/
 asyncio_run_in_thread.py
 

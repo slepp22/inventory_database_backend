@@ -36,26 +36,26 @@ If you used other credentials for the database, you can change them in the .env 
 After setting up the environment variables, the next step will be to generate and activate the virtual environment.
 There run following command in the terminal:
 1) This will generate a virtual environment with the name venv
-```bash
-python -m venv venv
-```
+    ```bash
+    python -m venv venv
+    ```
 2) Activate the virtual environment
-```bash
-Windows:
-venv\Scripts\activate
-
-MacOS:
-source venv/bin/activate 
-```
+    ```bash
+    Windows:
+    venv\Scripts\activate
+    
+    MacOS:
+    source venv/bin/activate 
+    ```
 3) Install dependencies
-```bash
-pip install -r requirements.txt 
-```
+   ```bash
+   pip install -r requirements.txt 
+   ```
 
-**Now the development environment is setup and you can start the application by clicking on "Run"**
+**Now the development environment is set up, and you can start the application by clicking on "Run"**
 You should see this message if the setup was successfull:
 
-<img src="./images/app_startup_successfull.png" style="width: 500px">
+<img alt="screenshot" src="./images/app_startup_successfull.png" style="width: 500px">
 
 ##### Database Migrations
 To create the database schema, you can run the following command:
@@ -70,7 +70,7 @@ This will create the necessary tables in the database.
 
 ## Deployment
 ### Database
-The Postgres Database is setup on Google Cloud SQL (Postgres 15)
+The Postgres Database is set up on Google Cloud SQL (Postgres 15)
 Please be aware that you cant just connect with to the database Public IP with the credentials. Your own network must 
 be added in the Google Cloud Web Interface, so it only allows connection from known networks.
 
@@ -83,18 +83,18 @@ The backend is hosted on Google Cloud Run. To deploy a new version following pre
 
 To deploy a new version a docker please follow these steps:
 1) Create new Docker image
-```bash
-docker buildx build -t sleppp/inventory-backend --platform linux/amd64 .
-```
+    ```bash
+    docker buildx build -t sleppp/inventory-backend --platform linux/amd64 .
+    ```
 2) Tag image for Google Cloud Run
-```bash
-docker tag sleppp/inventory-backend gcr.io/inventory-database-420916/inventory-backend
-```
+    ```bash
+    docker tag sleppp/inventory-backend gcr.io/inventory-database-420916/inventory-backend
+    ```
 
 3) Push image for Google Cloud Run
-```bash
-docker push gcr.io/inventory-database-420916/inventory-backend:latest
-```
+   ```bash
+   docker push gcr.io/inventory-database-420916/inventory-backend:latest
+   ```
 ## SQL Scripts for Test Data
 ```sql
 INSERT INTO users (firstname, lastname, email, password, role)
@@ -109,7 +109,7 @@ If you encounter any errors during the deployment process, make sure you are aut
 tips or common errors, refer to the Google Cloud Run documentation.
 
 
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeIBbxDL8IrOPwuaB3jFH2bx_lcdh7UUzGndN6Kd6m&s" alt="Alt text" style="width: 300px;" align="left">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeIBbxDL8IrOPwuaB3jFH2bx_lcdh7UUzGndN6Kd6m&s" alt="Alt text" style="width: 300px;">
 <!-- Insert a blank line here -->
-<img src="https://www.tha.de/Binaries/Binary19462/Logo-Centria.webp" alt="Alt text" style="width: 300px;" align="center">
+<img src="https://www.tha.de/Binaries/Binary19462/Logo-Centria.webp" alt="Alt text" style="width: 300px;">
 

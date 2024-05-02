@@ -1,7 +1,4 @@
-from typing import List
-
-from fastapi import APIRouter, Depends, Request, Response, status, HTTPException
-from sqlalchemy.orm import Session
+from fastapi import APIRouter
 
 import app.api.endpoints.db_migration.CRUD as db_migration_crud
 from app.api.endpoints.db_migration.schemas import TriggerRequestSchema

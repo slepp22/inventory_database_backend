@@ -62,9 +62,9 @@ def get_newest_booking(db: Session = Depends(get_db)):
 
 @router.put('/bookings/{booking_id}', response_model=BookingSchema, tags=['booking'])
 def update_booking(
-    booking_id: int,
-    updated_booking: BookingUpdateSchema,
-    db: Session = Depends(get_db)
+        booking_id: int,
+        updated_booking: BookingUpdateSchema,
+        db: Session = Depends(get_db)
 ):
     booking = booking_crud.get_booking_by_id(booking_id, db)
     if not booking:
