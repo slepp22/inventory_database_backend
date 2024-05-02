@@ -1,9 +1,10 @@
 import logging
 
+from sqlalchemy import not_
 from sqlalchemy.orm import Session
 
 from app.api.endpoints.device.schemas import DeviceCreateSchema
-from db.models import Device
+from db.models import Device, Booking
 
 
 def create_device(schema: DeviceCreateSchema, db: Session):
@@ -48,4 +49,4 @@ def get_devices_by_category(category_id: int, db: Session):
 
 
 def get_devices_not_in_use(db):
-    return db.query(Device).filter(Device.active == False).all()
+    return db.query(Device).outerjoin(Booking, Device.id == Booking.device_id).filter(Booking.active).all()

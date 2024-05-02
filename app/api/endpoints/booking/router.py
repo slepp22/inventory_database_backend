@@ -26,6 +26,14 @@ def get_all_bookings(db: Session = Depends(get_db)):
     return bookings
 
 
+@router.get('/bookings/newest/', response_model=BookingSchema, tags=['booking'])
+def get_newest_booking(db: Session = Depends(get_db)):
+    newest_booking = booking_crud.get_newest_booking(db)
+    if not newest_booking:
+        return {"message": "No bookings found"}
+    return newest_booking
+
+
 @router.get('/bookings/{booking_id}', response_model=BookingSchema, tags=['booking'])
 def get_booking_by_id(booking_id: int, db: Session = Depends(get_db)):
     booking = booking_crud.get_booking_by_id(booking_id, db)
@@ -50,14 +58,6 @@ def create_booking(booking: BookingCreateSchema, db: Session = Depends(get_db)):
 def delete_booking(booking_id: int, db: Session = Depends(get_db)):
     booking_crud.delete_booking(booking_id, db)
     return Response(status_code=status.HTTP_204_NO_CONTENT)
-
-
-@router.get('/bookings/newest', response_model=BookingSchema, tags=['booking'])
-def get_newest_booking(db: Session = Depends(get_db)):
-    newest_booking = booking_crud.get_newest_booking(db)
-    if not newest_booking:
-        return {"message": "No bookings found"}
-    return newest_booking
 
 
 @router.put('/bookings/{booking_id}', response_model=BookingSchema, tags=['booking'])
