@@ -45,3 +45,7 @@ def delete_device_by_id(device_id: int, db: Session):
 
 def get_devices_by_category(category_id: int, db: Session):
     return db.query(Device).filter(Device.category_id == category_id).all()
+
+
+def get_devices_not_in_use(db):
+    return db.query(Device).filter(Device.active == False).all()
