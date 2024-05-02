@@ -48,5 +48,15 @@ def get_devices_by_category(category_id: int, db: Session):
     return db.query(Device).filter(Device.category_id == category_id).all()
 
 
-def get_devices_not_in_use(db):
-    return db.query(Device).outerjoin(Booking, Device.id == Booking.device_id).filter(Booking.active).all()
+def get_devices_not_in_use(db: Session):
+    subquery = (
+        db.query(Booking.device_id)
+        .filter(Booking.active == True)
+        .distinct()
+        .subquery()
+    )
+    return (
+        db.query(Device)
+        .filter(not_(Device.id.in_(subquery)))
+        .all()
+    )
