@@ -6,7 +6,7 @@ from pydantic import BaseModel, Field
 class DeviceBaseSchema(BaseModel):
     owner: int
     date_of_purchase: datetime = Field(..., format="%Y-%m-%d %H-%M-%S")
-    price: float
+    purchase_price: float
     active: bool
     description: str
     brand: str

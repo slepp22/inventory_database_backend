@@ -26,8 +26,8 @@ class Device(Base):
 
     id = Column(Integer, primary_key=True)
     owner = Column(Integer, ForeignKey('users.id'), nullable=False)
-    date_of_purchase = Column(DateTime, nullable=False)
-    price = Column(Float, nullable=False)
+    date_of_purchase = Column(DateTime(timezone=False), nullable=False)
+    purchase_price = Column(Float)
     active = Column(Boolean, default=True)
     description = Column(String)
     brand = Column(String, nullable=False)
@@ -43,10 +43,10 @@ class Booking(Base):
     __tablename__ = 'bookings'
 
     id = Column(Integer, primary_key=True)
-    time_start = Column(DateTime, nullable=False)
-    time_end = Column(DateTime, nullable=False)
+    time_start = Column(DateTime(timezone=False), nullable=False)
+    time_end = Column(DateTime(timezone=False), nullable=False)
     active = Column(Boolean, default=True)
-    price = Column(Float, nullable=False)
+    booking_price = Column(Float)
     device_id = Column(Integer, ForeignKey('devices.id'), nullable=False)
     device = relationship("Device", back_populates="bookings")
     user_id = Column(Integer, ForeignKey('users.id'), nullable=False)
@@ -70,7 +70,7 @@ class Report(Base):
     __tablename__ = 'reports'
 
     id = Column(Integer, primary_key=True)
-    date = Column(DateTime, nullable=False)
+    date = Column(DateTime(timezone=False), nullable=False)
     description = Column(String)
     image = Column(String)
     booking_id = Column(Integer, ForeignKey('bookings.id'), nullable=False)
