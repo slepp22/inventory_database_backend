@@ -52,7 +52,7 @@ def delete_booking(booking_id: int, db: Session = Depends(get_db)):
     return Response(status_code=status.HTTP_204_NO_CONTENT)
 
 
-@router.get('/bookings/newest/', response_model=BookingSchema, tags=['booking'])
+@router.get('/bookings/newest', response_model=BookingSchema, tags=['booking'])
 def get_newest_booking(db: Session = Depends(get_db)):
     newest_booking = booking_crud.get_newest_booking(db)
     if not newest_booking:

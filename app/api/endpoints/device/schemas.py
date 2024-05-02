@@ -1,9 +1,11 @@
-from pydantic import BaseModel
+from datetime import datetime
+
+from pydantic import BaseModel, Field
 
 
 class DeviceBaseSchema(BaseModel):
     owner: int
-    date_of_purchase: str
+    date_of_purchase: datetime = Field(..., format="%Y-%m-%d %H-%M-%S")
     price: float
     active: bool
     description: str

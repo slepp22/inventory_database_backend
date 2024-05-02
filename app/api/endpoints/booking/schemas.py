@@ -1,11 +1,11 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from typing import Optional
 from datetime import datetime
 
 
 class BookingBaseSchema(BaseModel):
-    time_start: datetime
-    time_end: datetime
+    time_start: datetime = Field(..., format="%Y-%m-%d %H-%M-%S")
+    time_end: datetime = Field(..., format="%Y-%m-%d %H-%M-%S")
     active: bool
     price: float
     device_id: int
@@ -27,8 +27,8 @@ class BookingSchema(BookingBaseSchema):
 
 
 class BookingUpdateSchema(BaseModel):
-    time_start: Optional[datetime]
-    time_end: Optional[datetime]
+    time_start: Optional[datetime] = Field(None, format="%Y-%m-%d %H-%M-%S")
+    time_end: Optional[datetime] = Field(None, format="%Y-%m-%d %H-%M-%S")
     active: Optional[bool]
     price: Optional[float]
     device_id: Optional[int]

@@ -26,7 +26,7 @@ class Device(Base):
 
     id = Column(Integer, primary_key=True)
     owner = Column(Integer, ForeignKey('users.id'), nullable=False)
-    date_of_purchase = Column(String, nullable=False)
+    date_of_purchase = Column(DateTime, nullable=False)
     price = Column(Float, nullable=False)
     active = Column(Boolean, default=True)
     description = Column(String)
@@ -70,7 +70,7 @@ class Report(Base):
     __tablename__ = 'reports'
 
     id = Column(Integer, primary_key=True)
-    date = Column(String, nullable=False)
+    date = Column(DateTime, nullable=False)
     description = Column(String)
     image = Column(String)
     booking_id = Column(Integer, ForeignKey('bookings.id'), nullable=False)
