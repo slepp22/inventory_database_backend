@@ -1,4 +1,5 @@
 from datetime import datetime
+from typing import Optional
 
 from pydantic import BaseModel, Field
 
@@ -15,6 +16,7 @@ class DeviceBaseSchema(BaseModel):
     serial_no: str
     qr_code: str
     category_id: int
+    image: Optional[str]
 
 
 class DeviceCreateSchema(DeviceBaseSchema):
